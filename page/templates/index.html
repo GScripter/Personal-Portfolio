@@ -1,0 +1,485 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <title>Meu portfolio</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- Template css Files -->
+   <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+</head>
+<body>
+
+    <!-- MAIN CONTAINER -->
+    <div class="menu-lateral">
+        <!-- LATERAL-->
+        <div class="lateral">
+            <!-- LOGO-->
+            <div class="perfil">
+                <a href="#">
+                    <img src="{{ user.photo.url }}" alt="foto-perfil" class="sombra">
+                </a>
+            </div>
+            <!-- MINI-MENU HAMBURGUER-->
+            <div class="mini-menu-button">
+                <span></span>
+            </div>
+
+            <!--Itens navegação-->
+            <ul class="itens-menu">  
+                <li><a href="#home" class="active"><i class="fa fa-home"></i> Home</a></li>
+                <li><a href="#sobre"><i class="fa fa-user"></i> Sobre</a></li>
+                <li><a href="#servicos"><i class="fa fa-list"></i> Serviços</a></li>
+                <li><a href="#portfolio"><i class="fa fa-briefcase"></i> Portfólio</a></li>
+                <li><a href="#contato"><i class="fa fa-comments"></i> Contato</a></li>
+            </ul>
+        </div>
+
+        <!-- CONTEUDO  MEIO DAS PÁGINAS-->
+        <div class="main-content">
+            <!--PAGINA HOME-->
+            <section class="home section active" id="home">
+                <div class="container">
+                    <div class="intro">
+                        <img src="{% static 'imgs/Working from anywhere-cuate.svg' %}" alt="">
+                        <h1>{{ user.name }}</h1>
+                        <p>Desenvolvedor full-stack</p>
+                        <div class="redes-sociais">
+                            <a href="https://www.linkedin.com/m/in/gabriel-santana-485767203" target="_blank"><i class="fa fa-linkedin"></i></a>
+                            <a href="https://github.com/GabrielSantos198" target="_blank"><i class="fa fa-github"></i></a>
+                            <a href="https://medium.com/@joycequerubino5" target="_blank"><i class="fa fa-medium"></i></a>
+                            <a href="https://www.behance.net/joycequerucdd7" target="_blank"><i class="fa fa-behance"></i></a>
+                            <a href="https://codepen.io/joycequerubino/pens/" target="_blank"><i class="fa fa-codepen"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--FIM HOME-->
+
+            <!-- PAGINA SOBRE-->
+            <section class="sobre section" id="sobre">
+                <div class="container">
+                    <div class="linhas">
+                        <div class="section-title padd-15">
+                            <h2>Sobre mim</h2>
+                        </div>
+                    </div>
+                    <div class="linhas">
+                        <div class="sobre-conteudo padd-15">
+                            <div class="linhas">
+                                <div class="sobre-texto padd-15">
+                                    <h3>Olá, seja bem vindo ao meu site!</h3>
+                                    <p>{{ user.about }}</p>
+                                </div>
+                            </div>
+
+                            <!-- SKILLS EDIÇÃO-->
+                            <div class="novo">
+                                <h3 class="conhecimentos-title">Conhecimentos</h3>
+                                <p class="lista-conhecimentos-titulo">Programação</p>
+                                <div class="lista-conhecimentos">
+                                    <div class="lista-conhecimentos-item">
+                                        <img src="/imagens/icons/React.png" alt="Logo React" class="sombra">
+                                        <p>React.js</p>
+                                    </div>
+                                    <div class="lista-conhecimentos-item">
+                                        <img src="/imagens/icons/React.png" alt="Logo React-Native" class="sombra">
+                                        <p>React Native</p>
+                                    </div>
+                                    <div class="lista-conhecimentos-item">
+                                        <img src="/imagens/icons/JS.png" alt="Logo JavaScrip" class="sombra">
+                                        <p>JavaScrip</p>
+                                    </div>
+                                    <div class="lista-conhecimentos-item">
+                                        <img src="/imagens/icons/TS.png" alt="Logo Typescript" class="sombra">
+                                        <p>Typescript</p>
+                                    </div>
+                                    <div class="lista-conhecimentos-item">
+                                        <img src="/imagens/icons/html.png" alt="Logo HTML" class="sombra">
+                                        <p>HTML5</p>
+                                    </div>
+                                    <div class="lista-conhecimentos-item">
+                                        <img src="/imagens/icons/css.png" alt="Logo CSS3">
+                                        <p>CSS3</p>
+                                    </div>
+                                    <div class="lista-conhecimentos-item">
+                                        <img src="/imagens/icons/SASS.png" alt="Logo SASS">
+                                        <p>SASS</p>
+                                    </div>
+                                    <div class="lista-conhecimentos-item">
+                                        <img src="/imagens/icons/github.png" alt="Logo Github">
+                                        <p>Git e Github</p>
+                                    </div>
+                                    <div class="lista-conhecimentos-item">
+                                        <img src="/imagens/icons/mysql.png" alt="Logo MySql">
+                                        <p>MySql</p>
+                                    </div>
+                                    <div class="lista-conhecimentos-item">
+                                        <img src="/imagens/icons/node.png" alt="Logo Node">
+                                        <p>Node.js</p>
+                                    </div>
+                                    <div class="lista-conhecimentos-item">
+                                        <img src="/imagens/icons/yarn.png" alt="Logo Yarn">
+                                        <p>Yarn</p>
+                                    </div>
+                                    <div class="lista-conhecimentos-item">
+                                        <img src="/imagens/icons/npm.png" alt="Logo Npm">
+                                        <p>Npm</p>
+                                    </div>
+                                    <div class="lista-conhecimentos-item">
+                                        <img src="/imagens/icons/expo.png" alt="Logo Expo">
+                                        <p>Expo</p>
+                                    </div>
+                                    <div class="lista-conhecimentos-item">
+                                        <img src="/imagens/icons/wordpress.png" alt="Logo Wordpress">
+                                        <p>Wordpress</p>
+                                    </div>
+                                    
+                                </div>
+                                <p class="lista-conhecimentos-titulo">Design</p>
+                                <div class="lista-conhecimentos--menor">
+                                    <div class="lista-conhecimentos-item">
+                                        <img src="/imagens/icons/figma.png" alt="Logo Figma" class="sombra">
+                                        <p>Figma</p>
+                                    </div>
+                                    <div class="lista-conhecimentos-item">
+                                        <img src="/imagens/icons/AfterE.png" alt="Logo After Effects" class="sombra">
+                                        <p>After Effects</p>
+                                    </div>
+                                    <div class="lista-conhecimentos-item">
+                                        <img src="/imagens/icons/Illustrator.png" alt="Logo Illustrator" class="sombra">
+                                        <p>Illustrator</p>
+                                    </div>
+                                    <div class="lista-conhecimentos-item">
+                                        <img src="/imagens/icons/Photoshop.png" alt="Logo Photoshop" class="sombra">
+                                        <p>Photoshop</p>
+                                    </div>
+                                    <div class="lista-conhecimentos-item">
+                                        <img src="/imagens/icons/Premiere.png" alt="Logo Premiere" class="sombra">
+                                        <p>Premiere</p>
+                                    </div>
+                                </div>
+                                    
+                                <!--BOTÕES-->
+                                <div class="linhas">
+                                    <div class="buttons padd-15">
+                                        <a href="https://drive.google.com/file/d/1jHkjc8fpuz3bZxe1ZSAVclsTAVIcKPuQ/view?usp=sharing" target="_blank" class="btn">Download CV</a>
+                                        <a href="https://drive.google.com/file/d/1WifNdyQ4Rwp-J7J8sVGtL0nJFKuUarZc/view?usp=sharing" target="_blank" class="btn">Black CV</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Fim-Skills-->
+
+                            <!--Acadêmico e Experiência-->
+                            <div class="linhas">
+                                <div class="educacao padd-15">
+                                    <h3 class="title">Educação</h3>
+                                    <div class="linhas">
+                                        <div class="timeline-box padd-15">
+                                            <div class="timeline sombra">
+                                                <!-- TIMELINE ITEM 1-->
+                                                <div class="timeline-item">
+                                                    <div class="circulo-data"></div>
+                                                    <h6 class="timeline-data">
+                                                            <i class="fa fa-calendar"></i> 2018 - 2021
+                                                    </h6>
+                                                    <h4 class="timeline-title">UNIP - Universidade Paulista (Cursando)</h4>
+                                                    <p class="timeline-text">Graduação em Ciência da Computação</p>
+                                                </div>
+
+                                                 <!-- TIMELINE ITEM 2-->
+                                                 <div class="timeline-item">
+                                                    <div class="circulo-data"></div>
+                                                    <h6 class="timeline-data">
+                                                        <i class="fa fa-calendar"></i> 2017 - 2017
+                                                    </h6>
+                                                    <h4 class="timeline-title">BILAC - Faculdade Bilac (1º e 2º Semestre)</h4>
+                                                    <p class="timeline-text">Graduação em Ciência da Computação</p>
+                                                </div>
+
+                                                 <!-- TIMELINE ITEM 3-->
+                                                 <div class="timeline-item">
+                                                    <div class="circulo-data"></div>
+                                                    <h6 class="timeline-data">
+                                                        <i class="fa fa-calendar"></i> 2014 - 2015
+                                                    </h6>
+                                                    <h4 class="timeline-title">SENAI</h4>
+                                                    <p class="timeline-text">Mecânica de Usinagem - Tecnologia em Mecânica Industrial.</p>
+                                                </div>
+
+                                                 <!-- TIMELINE ITEM 4-->
+                                                 <div class="timeline-item">
+                                                    <div class="circulo-data"></div>
+                                                    <h6 class="timeline-data">
+                                                        <i class="fa fa-calendar"> </i>2014 - 2016
+                                                    </h6>
+                                                    <h4 class="timeline-title">Etec Cônego José Bento</h4>
+                                                    <p class="timeline-text">Ensino médio</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="experiencia padd-15">
+                                    <h3 class="title">Experiência</h3>
+                                    <div class="linhas">
+                                        <div class="timeline-box padd-15">
+                                            <div class="timeline sombra">
+
+                                                 <!-- TIMELINE ITEM 1-->
+                                                 <div class="timeline-item">
+                                                    <div class="circulo-data"></div>
+                                                    <h6 class="timeline-data">
+                                                            <i class="fa fa-calendar"></i> Jan 2021 - Set 2021 
+                                                    </h6>
+                                                    <h4 class="timeline-title">mLabs | Desenvolvedor Front-end</h4>
+                                                    <p class="timeline-text">Desenvolvimento de interfaces e novas funcionalidades utilizando HTML5, Slim, CSS3, JavaScript ES6, Styled-Components e React.</p>
+                                                </div>
+
+                                                <!-- TIMELINE ITEM 2-->
+                                                <div class="timeline-item">
+                                                    <div class="circulo-data"></div>
+                                                    <h6 class="timeline-data">
+                                                            <i class="fa fa-calendar"></i> Fev 2018 - Dez 2020
+                                                    </h6>
+                                                    <h4 class="timeline-title">Prima Software | Designer instrucional</h4>
+                                                    <p class="timeline-text">Ações de experiência de aprendizagem e engajamento do cliente: Criação e edição de vídeos tutoriais, animações, artes e motion graphic, desenvolvimento de artigos, elaboração de pesquisas, estudos e incorporação de novas ferramentas, construção de fluxos, produção da base de conhecimentos.</p>
+                                                </div>
+
+                                                 <!-- TIMELINE ITEM 3-->
+                                                 <div class="timeline-item">
+                                                    <div class="circulo-data"></div>
+                                                    <h6 class="timeline-data">
+                                                        <i class="fa fa-calendar"> </i> Jan 2017 - Fev 2018
+                                                    </h6>
+                                                    <h4 class="timeline-title">J.Macêdo | Aprendiz</h4>
+                                                    <p class="timeline-text">Controle de OEE (Overall Equipment Effectiveness) e perdas de produção, operação em SAL e SAP, implementação e abastecimento de planilhas, gerenciamento de POCs e participação em programas de aplicação SSMA.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="cursos padd-15">
+                                    <h3 class="title">Cursos</h3>
+                                    <div class="linhas">
+                                        <div class="timeline-box padd-15">
+                                            <div class="timeline sombra">
+                                                <!-- TIMELINE ITEM 1-->
+                                                <div class="timeline-item">
+                                                    <div class="circulo-data"></div>
+                                                    <h6 class="timeline-data">
+                                                            <i class="fa fa-calendar"></i> 2021 - (Cursando)
+                                                    </h6>
+                                                    <h4 class="timeline-title">Rocketseat | Ignite</h4>
+                                                    <p class="timeline-text">Deenvolvimento de aplicativos com React-Native, Typescript, Styled Components, Async Storage, Consumo de API rest, Animações e Testes.</p>
+                                                </div>
+
+                                                 <!-- TIMELINE ITEM 2 -->
+                                                 <div class="timeline-item">
+                                                    <div class="circulo-data"></div>
+                                                    <h6 class="timeline-data">
+                                                        <i class="fa fa-calendar"> </i> 15h - 2021
+                                                    </h6>
+                                                    <h4 class="timeline-title"> Escola Conquer | Comunicação e Oratória</h4>
+                                                    <p class="timeline-text">Comunicação efeciente, autocontrole, entonação, gestos, tom de voz e postura correta, além do desenvolvimento de apresentações de alto impacto visual com storytelling marcante.</p>
+                                                </div> 
+
+                                                 <!-- TIMELINE ITEM 3 -->
+                                                 <div class="timeline-item">
+                                                    <div class="circulo-data"></div>
+                                                    <h6 class="timeline-data">
+                                                        <i class="fa fa-calendar"> </i> 6h - 2020
+                                                    </h6>
+                                                    <h4 class="timeline-title"> Origamid | CSS Flexbox</h4>
+                                                    <p class="timeline-text">Curso voltado para o estudo da propriedade Flexbox do CSS, para o desenvolvimento de layouts responsivos.</p>
+                                                </div> 
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                               
+                            </div>
+                        </div>
+                    </div>     
+                </div>
+            </section>
+            <!-- FIM SOBRE-->
+
+            <!--SERVIÇOS-->
+            <section class="service section" id="servicos">
+                <div class="container">
+                    <div class="linhas">
+                        <div class="section-title padd-15">
+                            <h2>Serviços</h2>
+                        </div>
+                    </div>
+                    <div class="linhas">
+                            <!--Services item 1-->
+                            <div class="service-item padd-15">
+                                <div class="service-item-inner">
+                                    <div class="icon"><i class="fa fa-code"></i></div>
+                                    <h4>Web Developer</h4>
+                                    <p>Desenvolvimento de sites responsivos e animados utilizando HTML, CSS, JavaScrip, Node.js e etc.</p>
+                                </div>
+                            </div>
+
+                            <!--Services item 2-->
+                            <div class="service-item padd-15">
+                                <div class="service-item-inner">
+                                    <div class="icon"><i class="fa fa-laptop"></i></div>
+                                    <h4>Web Design</h4>
+                                    <p>Elaboração, manutenção e desenvolvimento estético e funcional de layouts para web sites.</p>
+                                </div>
+                            </div>
+
+                            <!--Services item 3-->
+                            <div class="service-item padd-15">
+                                <div class="service-item-inner">
+                                    <div class="icon"><i class="fa fa-rocket"></i></div>
+                                    <h4>Motion Graphic</h4>
+                                    <p>Criação e manipulação de vetores para o desvolvimento de animações através do After Effects e Illustrator.</p>
+                                </div>
+                            </div>
+
+                            <!--Services item 4-->
+                            <div class="service-item padd-15">
+                                <div class="service-item-inner">
+                                    <div class="icon"><i class="fa fa-film"></i></div>
+                                    <h4>Editora de Vídeo</h4>
+                                    <p>Edição, montagem e manipulação de vídeos e imagens através dos programas do pacote Adobe. </p>
+                                </div>
+                            </div>
+
+                            <!--Services item 5-->
+                            <div class="service-item padd-15">
+                                <div class="service-item-inner">
+                                    <div class="icon"><i class="fa fa-paint-brush"></i></div>
+                                    <h4>Design UI</h4>
+                                    <p>Projeção de interfaces claras e objetivas para utilização intuitiva dos usuários utilizando Adobe XD e Figma. </p>
+                                </div>
+                            </div>
+
+                            <!--Services item 6-->
+                            <div class="service-item padd-15">
+                                <div class="service-item-inner">
+                                    <div class="icon"><i class="fa fa-book"></i></div>
+                                    <h4>Design Instrucional</h4>
+                                    <p>Desenvolvimento e aplicação de ações de experiência de aprendizagem e engajamento do cliente.</p>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </section>
+            <!--FIM - SERVIÇOS-->
+
+            <!--PORTFOLIO-->
+            <section class="portfolio section" id="portfolio">
+                <div class="container">
+                    <div class="linhas">
+                        <div class="section-title padd-15">
+                            <h2>Portfólio</h2>
+                        </div>
+                    </div>
+                    <div class="linhas">
+                         {% for item in project %}
+                         <div class="portfolio-item padd-15">
+                            <div class="portfolio-item-inner sombra">
+                                <a href="{{ item.link }}" target="_blank">
+                                    <div class="portfolio-img">
+                                        <img src="{{ item.image.url }}" alt="">
+                                    </div>
+                                    <div class="portfolio-info">
+                                        <h4 class="portfolio-title">{{ item.title }}</h4>
+                                        <p class="portfolio-text">{{ item.text }}</p>
+                                        <p class="portfolio-tags">Tags: {{ item.tags }}</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+            <!-- FIM - PORTFOLIO-->
+
+            <!--CONTATO-->
+            <section class="contact section" id="contato">
+                <div class="container">
+                    <div class="linhas">
+                        <div class="section-title padd-15">
+                            <h2>Entre em contato</h2>
+                        </div>
+                    </div>
+                    <div class="linhas">
+                        <!--Contato item 1-->
+                        <div class="contact-info-item padd-15">
+                            <div class="icon"><i class="fa fa-map-marker"></i></div>
+                            <h4>Endereço</h4>
+                            <p>{{ user.city }}</p>
+                        </div>
+
+                        <!--Contato item 2-->
+                        <div class="contact-info-item padd-15">
+                            <div class="icon"><i class="fa fa-envelope"></i></div>
+                            <h4>Email</h4>
+                            <p>{{ user.email }}</p>
+                        </div>
+                    </div>
+                    <!--CONTATO FORMULARIO-->
+                    <div class="linhas">
+                        <form action="" class="contact-form padd-15">
+                            <div class="linhas">
+                                <div class="form-item col-6 padd-15">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control"  placeholder="Nome">
+                                    </div>
+                                </div>
+
+                                <div class="form-item col-6 padd-15">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Email">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="linhas">
+                                <div class="form-item col-12 padd-15">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Assunto">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="linhas">
+                                <div class="form-item col-12 padd-15">
+                                    <div class="form-group">
+                                        <textarea class="form-control" placeholder="Escreva aqui sua mensagem..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="linhas">
+                                <div class="col-12 padd-15">
+                                    <div class="form-group">
+                                       <button type="submit" class="btn">Enviar</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                    <!--FIM FORMULARIO-->
+                </div>
+            </section>
+            <!--FIM CONTATO-->
+        </div>
+    </div>
+
+      <!--Add js-->
+  <script src="{% static 'js/scripts.js' %}"></script>
+
+</body>
+</html>
+
