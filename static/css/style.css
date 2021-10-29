@@ -642,6 +642,9 @@ select {
 }
 
 /*PORTFOLIO*/
+.link-project{
+    text-decoration: none;
+}
 
 .portfolio .portfolio-item {
   -ms-flex: 0 0 33.33%;

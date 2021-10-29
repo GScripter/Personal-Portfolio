@@ -5,8 +5,19 @@
   <title>Meu portfolio</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
-   <link rel="shortcut icon" href="https://img.icons8.com/external-photo3ideastudio-flat-photo3ideastudio/64/000000/external-portfolio-digital-business-photo3ideastudio-flat-photo3ideastudio.png" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+  <link rel="shortcut icon" href="https://img.icons8.com/external-photo3ideastudio-flat-photo3ideastudio/64/000000/external-portfolio-digital-business-photo3ideastudio-flat-photo3ideastudio.png" type="image/x-icon">
+   <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HEVVJ063YR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-HEVVJ063YR');
+    </script>
+    <!-- End -->
 </head>
 <body>
 
@@ -16,8 +27,12 @@
         <div class="lateral">
             <!-- LOGO-->
             <div class="perfil">
-                <a href="#">
-                    <img src="{{ user.photo.url }}" alt="foto-perfil" class="sombra">
+                <a href="/">
+                    {% if user.photo %}
+                        <img src="{{ user.photo.url }}" alt="foto-perfil" class="sombra">
+                    {% else %}
+                        <img src="{% static 'imgs/FundoPadrão.jpg' %}" alt="foto-perfil" class="sombra">
+                    {% endif %}
                 </a>
             </div>
             <!-- MINI-MENU HAMBURGUER-->
@@ -88,7 +103,11 @@
                                 <!--BOTÕES-->
                                 <div class="linhas">
                                     <div class="buttons padd-15">
-                                        <a href="{{ user.cv }}" target="_blank" class="btn">Download CV</a>
+                                        {% if user.cv %}
+                                            <a href="{{ user.cv }}" target="_blank" class="btn">Download CV</a>
+                                        {% else %}
+                                            <a href="/" class="btn">Download CV</a>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>
@@ -211,20 +230,44 @@
                          {% for item in project %}
                          <div class="portfolio-item padd-15">
                             <div class="portfolio-item-inner sombra">
-                                <a href="{{ item.link }}" target="_blank">
+                                <a class="link-project" href="{{ item.link }}" target="_blank">
                                     <div class="portfolio-img">
-                                        <img src="{{ item.image.url }}" alt="">
+                                        {% if item.image %}
+                                            <img src="{{ item.image.url }}" alt="">
+                                        {% else %}
+                                            <img src="{% static 'imgs/FundoPadrão.jpg' %}" alt="">
+                                        {% endif %}
                                     </div>
                                     <div class="portfolio-info">
                                         <h4 class="portfolio-title">{{ item.name }}</h4>
                                         <p class="portfolio-text">{{ item.text }}</p>
-                                        <p class="portfolio-tags">Tags: {{ item.tags }}</p>
+                                        {% if item.tags %}
+                                            <p class="portfolio-tags">Tags: {{ item.tags }}</p>
+                                        {% endif %}
                                     </div>
                                 </a>
                             </div>
                         </div>
                         {% endfor %}
                     </div>
+                        <nav aria-label="...">
+                          <ul class="pagination">
+                            <li class="page-item disabled">
+                              <span class="page-link">Previous</span>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item active" aria-current="page">
+                              <span class="page-link">2</span>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                              <a class="page-link" href="#">Next</a>
+                            </li>
+                          </ul>
+                        </nav>
+                        <br>
+                        <br>
+                        <br>
                 </div>
             </section>
             <!-- FIM - PORTFOLIO-->

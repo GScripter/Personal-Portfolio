@@ -3,20 +3,20 @@ from model_utils.models import TimeStampedModel
 
 # Create your models here.
 class Project(TimeStampedModel):
-    image = models.ImageField(upload_to="project")
-    name = models.CharField(max_length=50)
-    text = models.CharField(max_length=200)
-    link = models.URLField()
-    tags = models.CharField(max_length=100)
+    image = models.FileField(upload_to="project", blank=True)
+    name = models.CharField(max_length=50, blank=False)
+    text = models.CharField(max_length=200, blank=False)
+    link = models.URLField(blank=False)
+    tags = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
         return self.name
 
 
 class Knowledge(TimeStampedModel):
-    logo = models.ImageField(upload_to="logo", blank=False)
+    logo = models.FileField(upload_to="logo", blank=False)
     name = models.CharField(max_length=20, blank=False)
-    alt = models.CharField(max_length=20, blank=True)
+    alt = models.CharField(max_length=20, blank=False)
 
     def __str__(self):
         return self.name
@@ -38,10 +38,10 @@ class EEC(TimeStampedModel):
 
 
 class Service(TimeStampedModel):
-    logo = models.ImageField(upload_to="logo", blank=False)
+    logo = models.FileField(upload_to="logo", blank=False)
     name = models.CharField(max_length=20, blank=False)
     text = models.CharField(max_length=150, blank=False)
-    alt = models.CharField(max_length=20, blank=True)
+    alt = models.CharField(max_length=20, blank=False)
 
     def __str__(self):
         return self.name
