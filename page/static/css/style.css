@@ -528,6 +528,7 @@ select {
   max-width: 100%;
   width: 100%;
   position: relative;
+  margin-bottom: 50px;
 }
 
 .sobre .sobre-conteudo .timeline .timeline-item {
@@ -591,7 +592,7 @@ select {
 /* Service Section */
 
 .service .container {
-  padding-bottom: 40px;
+  padding-bottom: 50px;
 }
 
 .service .service-item {
@@ -619,27 +620,12 @@ select {
   box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
 }
 
-.service .service-item .service-item-inner .icon {
-  height: 60px;
-  width: 60px;
-
-  color: var(--color-blue);
-  display: block;
-  margin: 0 auto 30px;
-  text-align: center;
+.service .service-item .service-item-inner .icon img{
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
-.service .service-item .service-item-inner .icon:hover {
-  color: white;
-  background-color: var(--color-blue);
 }
 
-.service .service-item .service-item-inner .icon .fa {
-  font-size: 35px;
-  line-height: 60px;
-}
 
 .service .service-item .service-item-inner h4 {
   font-size: 18px;
@@ -798,6 +784,7 @@ select {
 .contact .contact-form .btn {
   height: 50px;
   padding: 0 50px;
+    margin-bottom: 50px;
 }
 
 /*RESPONSIVIDADE*/

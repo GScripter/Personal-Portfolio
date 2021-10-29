@@ -1,10 +1,17 @@
 from django.shortcuts import render
 from django.views.generic import ListView
-from .models import Portfolio
+from .models import Project, Knowledge, EEC, Service
 
 # Create your views here.
 class AllPageView(ListView):
-    queryset = Portfolio.objects.all().order_by('-modified')
+    queryset = Project.objects.all().order_by('-modified')
     template_name = 'index.html'
     context_object_name = 'project'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['knowledge'] = Knowledge.objects.all()
+        context['eec'] = EEC.objects.all()
+        context['service'] = Service.objects.all()
+        return context
 

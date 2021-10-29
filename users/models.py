@@ -7,5 +7,5 @@ class User(AbstractUser):
     name = models.CharField(max_length=250)
     about = models.TextField(blank=True)
     city = models.CharField(max_length=30)
-
+    cv = models.URLField(blank=True)
 
