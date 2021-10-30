@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 from .models import Project, Knowledge, EEC, Service
+from users.models import User
 
 # Create your views here.
 class AllPageView(ListView):
@@ -14,5 +15,6 @@ class AllPageView(ListView):
         context['knowledge'] = Knowledge.objects.all()
         context['eec'] = EEC.objects.all()
         context['service'] = Service.objects.all()
+        context['procfile'] = User.objects.get(pk=1)
         return context
 
