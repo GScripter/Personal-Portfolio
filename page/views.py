@@ -12,9 +12,9 @@ class AllPageView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['knowledge'] = Knowledge.objects.all()
-        context['eec'] = EEC.objects.all()
-        context['service'] = Service.objects.all()
+        context['knowledge'] = Knowledge.objects.all().order_by('modified')
+        context['eec'] = EEC.objects.all().order_by('-modified')
+        context['service'] = Service.objects.all().order_by('-modified')
         context['procfile'] = User.objects.get(pk=1)
         return context
 
