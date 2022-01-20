@@ -10,7 +10,7 @@ class UserAdmin(auth_admin.UserAdmin):
     add_form = UserCreationForm
     model = User
     fieldsets = (
-        ("Procfile", {"fields":("photo", "name", "about", "email", "city", "cv",)}),
+        ("Procfile", {"fields":("photo", "name", "about", "email", "city", "profession", "cv",)}),
     )
 
 

@@ -216,6 +216,15 @@ select {
   border: 8px solid #ffffff;
 }
 
+#icone-tema{
+  font-size: 30px;
+  text-align: right;
+}
+
+#check{
+  display: none;
+}
+
 .sombra {
   -webkit-box-shadown: 0 0 20px rgba(48, 46, 77, 0.15);
   box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
@@ -292,7 +301,7 @@ select {
 /*Fim - mini-menu-button*/
 .lateral .itens-menu {
   list-style: none;
-  margin: 70px 0;
+  margin: 40px 0 70px 0;
   padding: 0;
 }
 
