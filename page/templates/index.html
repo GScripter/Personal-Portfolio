@@ -288,17 +288,18 @@
                     </div>
                     <!--CONTATO FORMULARIO-->
                     <div class="linhas">
-                        <form action="https://formspree.io/f/xyylaqay" class="contact-form padd-15" method="POST">
+                      <form action="{% url "all" %}" class="contact-form padd-15" method="POST">
+                        {% csrf_token %}
                             <div class="linhas">
                                 <div class="form-item col-6 padd-15">
                                     <div class="form-group">
-                                        <input type="text" class="form-control"  placeholder="Nome" required="required" name="_name">
+                                        <input type="text" class="form-control"  placeholder="Nome" required="required" name="name">
                                     </div>
                                 </div>
 
                                 <div class="form-item col-6 padd-15">
                                     <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Email" required="required" name="_replyto">
+                                        <input type="email" class="form-control" placeholder="Email" required="required" name="e-mail">
                                     </div>
                                 </div>
                             </div>
@@ -306,7 +307,7 @@
                             <div class="linhas">
                                 <div class="form-item col-12 padd-15">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Assunto" required="required" name="_subject">
+                                        <input type="text" class="form-control" placeholder="Assunto" required="required" name="subject">
                                     </div>
                                 </div>
                             </div>
@@ -314,7 +315,7 @@
                             <div class="linhas">
                                 <div class="form-item col-12 padd-15">
                                     <div class="form-group">
-                                        <textarea class="form-control" placeholder="Escreva aqui sua mensagem..." required="required" name="_message"></textarea>
+                                        <textarea class="form-control" placeholder="Escreva aqui sua mensagem..." required="required" name="message"></textarea>
                                     </div>
                                 </div>
                             </div>
