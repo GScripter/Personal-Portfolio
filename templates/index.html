@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <title>Meu portfolio</title>
+  <title>My portfolio</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
@@ -49,10 +49,10 @@
               <!--Itens navegação-->
               <ul class="itens-menu">  
                   <li><a href="#home" class="active"><i class="fa fa-home"></i> Home</a></li>
-                  <li><a href="#sobre"><i class="fa fa-user"></i> Sobre</a></li>
-                  <li><a href="#servicos"><i class="fa fa-list"></i> Serviços</a></li>
-                  <li><a href="#portfolio"><i class="fa fa-briefcase"></i> Portfólio</a></li>
-                  <li><a href="#contato"><i class="fa fa-comments"></i> Contato</a></li>
+                  <li><a href="#about"><i class="fa fa-user"></i> About</a></li>
+                  <li><a href="#services"><i class="fa fa-list"></i> Services</a></li>
+                  <li><a href="#portfolio"><i class="fa fa-briefcase"></i> Portfolio</a></li>
+                  <li><a href="#contact"><i class="fa fa-comments"></i> Contact</a></li>
               </ul>
           </div>
 
@@ -61,10 +61,11 @@
               <!--PAGINA HOME-->
               <section class="home section active" id="home">
                   <div class="container">
+                    <p class="translate"><a href="{% url 'pt' %}" class="cor"><i class="bi bi-translate"></i> Portuguese</a></p>
                       <div class="intro">
                           <img src="{% static 'imgs/Working from anywhere-cuate.svg' %}" alt="">
                           <h1>{{ procfile.name }}</h1>
-                          <p class="cor">{{ procfile.profession }}</p>
+                          <p class="cor">Web Developer</p>
                           <div class="redes-sociais">
                               <a href="https://www.linkedin.com/m/in/gabriel-santana-485767203" target="_blank"><i class="fa fa-linkedin"></i></a>
                               <a href="https://github.com/GabrielSantos198" target="_blank"><i class="fa fa-github"></i></a>
@@ -78,25 +79,25 @@
               <!--FIM HOME-->
 
               <!-- PAGINA SOBRE-->
-              <section class="sobre section" id="sobre">
+              <section class="sobre section" id="about">
                   <div class="container">
                       <div class="linhas">
                           <div class="section-title padd-15">
-                              <h2>Sobre mim</h2>
+                              <h2>About me</h2>
                           </div>
                       </div>
                       <div class="linhas">
                           <div class="sobre-conteudo padd-15">
                               <div class="linhas">
                                   <div class="sobre-texto padd-15">
-                                      <h3>Olá, seja bem vindo ao meu site!</h3>
+                                      <h3>Hello, welcome to my website!</h3>
                                       <p class="cor">{{ procfile.about }}</p>
                                   </div>
                               </div>
 
                               <!-- SKILLS EDIÇÃO-->
                               <div class="novo">
-                                  <h3 class="conhecimentos-title">Conhecimentos</h3>
+                                  <h3 class="conhecimentos-title">knowledge</h3>
                                   <div class="lista-conhecimentos">
                                       {% for know in knowledge %}
                                           <div class="lista-conhecimentos-item">
@@ -122,7 +123,7 @@
                               <!--Acadêmico e Experiência-->
                               <div class="linhas">
                                   <div class="educacao padd-15">
-                                      <h3 class="title">Educação</h3>
+                                      <h3 class="title">Education</h3>
                                       <div class="linhas">
                                           <div class="timeline-box padd-15">
                                               <div class="timeline sombra">
@@ -146,7 +147,7 @@
                                   </div>
 
                                   <div class="experiencia padd-15">
-                                      <h3 class="title">Experiência</h3>
+                                      <h3 class="title">Experience</h3>
                                       <div class="linhas">
                                           <div class="timeline-box padd-15">
                                               <div class="timeline sombra">
@@ -170,7 +171,7 @@
                                   </div>
 
                                   <div class="cursos padd-15">
-                                      <h3 class="title">Cursos</h3>
+                                      <h3 class="title">Course</h3>
                                       <div class="linhas">
                                           <div class="timeline-box padd-15">
                                               <div class="timeline sombra">
@@ -200,11 +201,11 @@
               <!-- FIM SOBRE-->
 
               <!--SERVIÇOS-->
-              <section class="service section" id="servicos">
+              <section class="service section" id="services">
                   <div class="container">
                       <div class="linhas">
                           <div class="section-title padd-15">
-                              <h2>Serviços</h2>
+                              <h2>Services</h2>
                           </div>
                       </div>
                       <div class="linhas">
@@ -229,7 +230,7 @@
                 <div class="container">
                     <div class="linhas">
                         <div class="section-title padd-15">
-                            <h2>Portfólio</h2>
+                            <h2>Portfolio</h2>
                         </div>
                     </div>
                     <div class="linhas">
@@ -264,25 +265,25 @@
             <!-- FIM - PORTFOLIO-->
 
             <!--CONTATO-->
-            <section class="contact section" id="contato">
+            <section class="contact section" id="contact">
                 <div class="container">
                     <div class="linhas">
                         <div class="section-title padd-15">
-                            <h2>Entre em contato</h2>
+                            <h2>Get in touch with me</h2>
                         </div>
                     </div>
                     <div class="linhas">
                         <!--Contato item 1-->
                         <div class="contact-info-item padd-15">
                             <div class="icon"><i class="fa fa-map-marker"></i></div>
-                            <h4 class="cor">Endereço</h4>
+                            <h4 class="cor">Address</h4>
                             <p class="cor">{{ procfile.city }}</p>
                         </div>
 
                         <!--Contato item 2-->
                         <div class="contact-info-item padd-15">
                             <div class="icon"><i class="fa fa-envelope"></i></div>
-                            <h4 class="cor">Email</h4>
+                            <h4 class="cor">E-mail</h4>
                             <p class="cor">{{ procfile.email }}</p>
                         </div>
                     </div>
@@ -293,13 +294,13 @@
                             <div class="linhas">
                                 <div class="form-item col-6 padd-15">
                                     <div class="form-group">
-                                        <input type="text" class="form-control"  placeholder="Nome" required="required" name="name">
+                                        <input type="text" class="form-control"  placeholder="Name" required="required" name="name">
                                     </div>
                                 </div>
 
                                 <div class="form-item col-6 padd-15">
                                     <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Email" required="required" name="e-mail">
+                                        <input type="email" class="form-control" placeholder="E-mail" required="required" name="e-mail">
                                     </div>
                                 </div>
                             </div>
@@ -307,7 +308,7 @@
                             <div class="linhas">
                                 <div class="form-item col-12 padd-15">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Assunto" required="required" name="subject">
+                                        <input type="text" class="form-control" placeholder="Subject" required="required" name="subject">
                                     </div>
                                 </div>
                             </div>
@@ -315,7 +316,7 @@
                             <div class="linhas">
                                 <div class="form-item col-12 padd-15">
                                     <div class="form-group">
-                                        <textarea class="form-control" placeholder="Escreva aqui sua mensagem..." required="required" name="message"></textarea>
+                                        <textarea class="form-control" placeholder="Write your message here..." required="required" name="message"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -323,7 +324,7 @@
                             <div class="linhas">
                                 <div class="col-12 padd-15">
                                     <div class="form-group">
-                                       <button type="submit" class="btn">Enviar</button>
+                                       <button type="submit" class="btn">Submit</button>
                                     </div>
                                 </div>
                             </div>

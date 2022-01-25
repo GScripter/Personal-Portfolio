@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     # My Apps
     'users',
     'page',
+    'page_pt',
     # Third Apps
     'cloudinary',
     'cloudinary_storage',
@@ -64,7 +65,7 @@ ROOT_URLCONF = 'Portfolio_Pessoal.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

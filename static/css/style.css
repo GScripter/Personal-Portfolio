@@ -346,6 +346,15 @@ select {
   text-align: center;
 }
 
+.translate{
+  text-align: right;
+  font-size: 20px;
+}
+
+.translate .cor{
+  color: var(--color-text);
+}
+
 .home .intro img {
   width: 45%;
   display: inline-block;
