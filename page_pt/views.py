@@ -13,10 +13,11 @@ class PagePTView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['perfil'] = User.objects.get(username='Gabriel55693')
         context['conhecimento'] = Conhecimento.objects.all().order_by('modified')
         context['eec'] = EEC.objects.all().order_by('-modified')
         context['servico'] = Servico.objects.all().order_by('-modified')
+        if User.objects.all().count() > 1:
+            context['perfil'] = User.objects.all()[1]
         return context
 
 

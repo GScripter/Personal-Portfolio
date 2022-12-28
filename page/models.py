@@ -3,7 +3,7 @@ from model_utils.models import TimeStampedModel
 
 # Create your models here.
 class Project(TimeStampedModel):
-    image = models.ImageField(upload_to="project", blank=True)
+    image = models.FileField(upload_to="project", blank=True)
     name = models.CharField(max_length=50, blank=False)
     text = models.CharField(max_length=200, blank=False)
     link = models.URLField(blank=False)
@@ -14,7 +14,7 @@ class Project(TimeStampedModel):
 
 
 class Knowledge(TimeStampedModel):
-    logo = models.ImageField(upload_to="logo", blank=False)
+    logo = models.FileField(upload_to="logo", blank=False)
     name = models.CharField(max_length=20, blank=False)
     alt = models.CharField(max_length=20, blank=False)
 
@@ -38,7 +38,7 @@ class EEC(TimeStampedModel):
 
 
 class Service(TimeStampedModel):
-    logo = models.ImageField(upload_to="logo", blank=False)
+    logo = models.FileField(upload_to="logo", blank=False)
     name = models.CharField(max_length=20, blank=False)
     text = models.CharField(max_length=150, blank=False)
     alt = models.CharField(max_length=20, blank=False)

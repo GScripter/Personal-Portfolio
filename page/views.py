@@ -17,7 +17,8 @@ class AllPageView(ListView):
         context['knowledge'] = Knowledge.objects.all().order_by('modified')
         context['eec'] = EEC.objects.all().order_by('-modified')
         context['service'] = Service.objects.all().order_by('-modified')
-        context['procfile'] = User.objects.get(username='gabriel')
+        if User.objects.all():
+            context['procfile'] = User.objects.all()[0]
         return context
 
 
