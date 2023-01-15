@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     # My Apps
     'users',
     'page',
-    'page_pt',
     # Third Apps
     'cloudinary',
     'cloudinary_storage',

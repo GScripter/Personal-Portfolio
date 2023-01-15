@@ -1,0 +1,30 @@
+.dark .lateral-menu .lateral{
+  background-color: #343A40;
+}
+
+.dark .lateral-menu .main-content #home,
+.dark .lateral-menu .main-content #about,
+.dark .lateral-menu .main-content #services,
+.dark .lateral-menu .main-content #portfolio,
+.dark .lateral-menu .main-content #contact
+{
+  background-color: #222428;
+}
+
+.dark .lateral-menu .main-content #contact .contact-info-item  p,
+.dark .lateral-menu .main-content #home .container .intro h1,
+.dark .lateral-menu .main-content #about .sobre-conteudo .sobre-texto p,
+.dark .lateral-menu .lateral .itens-menu li a,
+.dark .lateral-menu .lateral #icone-tema label i,
+.dark h2,
+.dark h3,
+.dark .translate a,
+.dark .lateral-menu .main-content #home .intro p,
+.dark .lateral-menu .main-content #about .sobre-texto h3,
+.dark .lateral-menu .main-content #about .conhecimentos-title,
+.dark .lateral-menu .main-content #about .title,
+.dark .lateral-menu .main-content .contact .container h4,
+.dark .lateral-menu .main-content .lista-conhecimentos p
+{
+  color: #fff;
+}

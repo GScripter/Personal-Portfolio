@@ -30,7 +30,7 @@ class EEC(TimeStampedModel):
     )
     date = models.CharField(max_length=25, blank=False)
     name = models.CharField(max_length=60, blank=False)
-    text = models.CharField(max_length=150, blank=False)
+    text = models.CharField(max_length=200, blank=False)
     category = models.CharField(max_length=12, blank=False, choices=CATEGORY, default='education')
 
     def __str__(self):
@@ -40,7 +40,7 @@ class EEC(TimeStampedModel):
 class Service(TimeStampedModel):
     logo = models.FileField(upload_to="logo", blank=False)
     name = models.CharField(max_length=20, blank=False)
-    text = models.CharField(max_length=150, blank=False)
+    text = models.CharField(max_length=200, blank=False)
     alt = models.CharField(max_length=20, blank=False)
 
     def __str__(self):

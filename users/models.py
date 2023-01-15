@@ -8,5 +8,10 @@ class User(AbstractUser):
     about = models.TextField(blank=False)
     city = models.CharField(max_length=30, blank=False)
     cv = models.URLField(blank=True)
+    linkedin = models.URLField(blank=True)
+    github = models.URLField(blank=True)
+    whatsapp = models.URLField(blank=True)
+    telegram = models.URLField(blank=True)
+    instagram = models.URLField(blank=True)
     modified = models.DateTimeField(auto_now=True)
 

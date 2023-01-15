@@ -1,14 +1,340 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <title>My portfolio</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
-  <link rel="shortcut icon" href="https://img.icons8.com/external-photo3ideastudio-flat-photo3ideastudio/64/000000/external-portfolio-digital-business-photo3ideastudio-flat-photo3ideastudio.png" type="image/x-icon">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
-   <!-- Global site tag (gtag.js) - Google Analytics -->
+  <head>
+    <title>Meu portfólio</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- My CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/dark.css' %}" type="text/css">
+    <!-- Logo -->
+    <link rel="shortcut icon" href="https://img.icons8.com/external-photo3ideastudio-flat-photo3ideastudio/64/000000/external-portfolio-digital-business-photo3ideastudio-flat-photo3ideastudio.png" type="image/x-icon">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+  </head>
+  <body class="dark">
+		<!-- MAIN CONTAINER -->
+		<div class="lateral-menu">
+			<!-- LATERAL-->
+			<div class="lateral">
+				<!-- LOGO-->
+				<div class="perfil">
+					<a href="/">
+						{% if procfile.photo %}
+						<img src="{{ procfile.photo.url }}" alt="foto-perfil" class="sombra">
+						{% else %}
+						<img src="https://res.cloudinary.com/degkn8uwg/image/upload/v1635584188/media-portfolio/FundoPadrão_vmgxoa.jpg" alt="foto-perfil" class="sombra">
+						{% endif %}
+					</a>
+				</div>
+				<div id="icone-tema">
+					<input type="checkbox" id="check">
+					<label for="check">
+						<i onclick="theme()" class="bi bi-toggle-off"></i>
+					</label>
+				</div>
+				<!-- MINI-MENU HAMBURGUER-->
+				<div class="mini-menu-button">
+					<span></span>
+				</div>
+
+				<!--Itens navegação-->
+				<ul class="itens-menu">  
+					<li><a href="#home" class="active"><i class="fa fa-home"></i> Início</a></li>
+					<li><a href="#about"><i class="fa fa-user"></i> Sobre</a></li>
+					<li><a href="#services"><i class="fa fa-list"></i> Serviços</a></li>
+					<li><a href="#portfolio"><i class="fa fa-briefcase"></i> Portfólio</a></li>
+					<li><a href="#contact"><i class="fa fa-comments"></i> Contato</a></li>
+				</ul>
+			</div>
+
+			<!-- CONTEUDO  MEIO DAS PÁGINAS-->
+			<div class="main-content">
+				<!--PAGINA HOME-->
+				<section class="home section active" id="home">
+					<div class="container">
+            <div class="translate"><select onchange="doGTranslate(this);"><option value="">Traduzir</option><option value="pt|en">Inglês</option><option value="pt|pt">Português</option><option value="pt|es">Espanhol</option></select><div id="google_translate_element2" style="width: 0px; overflow: hidden;"></div></div>
+						<div class="intro">
+							<img src="{% static 'imgs/Working from anywhere-cuate.svg' %}" alt="">
+							<h1>{{ procfile.name }}</h1>
+							<p>Desenvolvedor Web</p>
+							<div class="redes-sociais">
+                <a href="{{ procfile.linkedin }}" target="_blank"><i class="fa fa-linkedin"></i></a>
+								<a href="{{ procfile.github }}" target="_blank"><i class="fa fa-github"></i></a>
+								<a href="{{ procfile.whatsapp }}"><i class="bi bi-whatsapp"></i></a>
+								<a href="{{ procfile.telegram }}"><i class="bi bi-telegram"></i></a>
+								<a href="{{ procfile.instagram }}"><i class="bi bi-instagram"></i></a>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!--FIM HOME-->
+
+				<!-- PAGINA SOBRE-->
+				<section class="sobre section" id="about">
+					<div class="container">
+						<div class="linhas">
+							<div class="section-title padd-15">
+								<h2>Sobre mim</h2>
+							</div>
+						</div>
+						<div class="linhas">
+							<div class="sobre-conteudo padd-15">
+								<div class="linhas">
+									<div class="sobre-texto padd-15">
+										<h3>Olá, bem vindo ao meu website!</h3>
+										<p>{{ procfile.about }}</p>
+									</div>
+								</div>
+
+								<!-- SKILLS EDIÇÃO-->
+								<div class="novo">
+									<h3 class="conhecimentos-title">Conhecimentos</h3>
+									<div class="lista-conhecimentos">
+										{% for know in knowledge %}
+										<div class="lista-conhecimentos-item">
+											<img src="{{ know.logo.url }}" alt="{{ know.alt }}" class="sombra">
+											<p>{{ know.name }}</p>
+										</div>
+										{% endfor %}
+									</div>
+
+									<!--BOTÕES-->
+									<div class="linhas">
+										<div class="buttons padd-15">
+											{% if procfile.cv %}
+											<a href="{{ procfile.cv }}" target="_blank" class="btn">Baixar CV</a>
+											{% else %}
+											<a href="/" class="btn">Baixar CV</a>
+											{% endif %}
+										</div>
+									</div>
+								</div>
+								<!--Fim-Skills-->
+
+								<!--Acadêmico e Experiência-->
+								<div class="linhas">
+									<div class="educacao padd-15">
+										<h3 class="title">Educação</h3>
+										<div class="linhas">
+											<div class="timeline-box padd-15">
+												<div class="timeline sombra">
+
+													{% for categ in eec %}
+													{% if categ.category == 'education' %}
+													<div class="timeline-item">
+														<div class="circulo-data"></div>
+														<h6 class="timeline-data">
+															<i class="fa fa-calendar"></i> {{ categ.date }}
+														</h6>
+														<h4 class="timeline-title">{{ categ.name }}</h4>
+														<p class="timeline-text">{{ categ.text }}</p>
+													</div>
+													{% endif %}
+													{% endfor %}
+
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="experiencia padd-15">
+										<h3 class="title">Experiência</h3>
+										<div class="linhas">
+											<div class="timeline-box padd-15">
+												<div class="timeline sombra">
+
+													{% for categ in eec %}
+													{% if categ.category == 'experience' %}
+													<div class="timeline-item">
+														<div class="circulo-data"></div>
+														<h6 class="timeline-data">
+															<i class="fa fa-calendar"></i> {{ categ.date }}
+														</h6>
+														<h4 class="timeline-title">{{ categ.name }}</h4>
+														<p class="timeline-text">{{ categ.text }}</p>
+													</div>
+													{% endif %}
+													{% endfor %}
+
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="cursos padd-15">
+										<h3 class="title">Curso</h3>
+										<div class="linhas">
+											<div class="timeline-box padd-15">
+												<div class="timeline sombra">
+
+													{% for categ in eec %}
+													{% if categ.category == 'course' %}
+													<div class="timeline-item">
+														<div class="circulo-data"></div>
+														<h6 class="timeline-data">
+															<i class="fa fa-calendar"></i> {{ categ.date }}
+														</h6>
+														<h4 class="timeline-title">{{ categ.name }}</h4>
+														<p class="timeline-text">{{ categ.text }}</p>
+													</div>
+													{% endif %}
+													{% endfor %}
+
+												</div>
+											</div>
+										</div>
+									</div>                               
+								</div>
+							</div>
+						</div>     
+					</div>
+				</section>
+				<!-- FIM SOBRE-->
+
+				<!--SERVIÇOS-->
+				<section class="service section" id="services">
+					<div class="container">
+						<div class="linhas">
+							<div class="section-title padd-15">
+								<h2>Serviços</h2>
+							</div>
+						</div>
+						<div class="linhas">
+
+							{% for service in service %}
+							<div class="service-item padd-15">
+								<div class="service-item-inner">
+									<div class="icon"><img src="{{ service.logo.url }}" alt="{{ service.alt }}"></div>
+									<h4>{{ service.name }}</h4>
+									<p>{{ service.text }}</p>
+								</div>
+							</div>
+							{% endfor %}
+
+						</div>
+					</div>
+				</section>
+				<!--FIM - SERVIÇOS-->
+
+				<!--PORTFOLIO-->
+				<section class="portfolio section" id="portfolio">
+					<div class="container">
+						<div class="linhas">
+							<div class="section-title padd-15">
+								<h2>Portfólio</h2>
+							</div>
+						</div>
+						<div class="linhas">
+							{% for item in project %}
+							<div class="portfolio-item padd-15">
+								<div class="portfolio-item-inner sombra">
+									<a class="link-project" href="{{ item.link }}" target="_blank">
+										<div class="portfolio-img">
+											{% if item.image %}
+											<img src="{{ item.image.url }}" alt="">
+											{% else %}
+											<img src="https://res.cloudinary.com/degkn8uwg/image/upload/v1635584188/media-portfolio/FundoPadrão_vmgxoa.jpg" alt="">
+											{% endif %}
+										</div>
+										<div class="portfolio-info">
+											<h4 class="portfolio-title">{{ item.name }}</h4>
+											<p class="portfolio-text">{{ item.text }}</p>
+											{% if item.tags %}
+                      <p class="portfolio-tags"><b>Tags:</b> {{ item.tags }}</p>
+											{% endif %}
+										</div>
+									</a>
+								</div>
+							</div>
+							{% endfor %}
+						</div>
+						<br>
+						<br>
+						<br>
+					</div>
+				</section>
+				<!-- FIM - PORTFOLIO-->
+
+				<!--CONTATO-->
+				<section class="contact section" id="contact">
+					<div class="container">
+						<div class="linhas">
+
+							<div class="section-title padd-15">
+								<h2>Entre em contato comigo.</h2>
+							</div>
+						</div>
+						<div class="linhas">
+							<!--Contato item 1-->
+							<div class="contact-info-item padd-15">
+								<div class="icon"><i class="fa fa-map-marker"></i></div>
+								<h4>Endereço</h4>
+								<p>{{ procfile.city }}</p>
+							</div>
+
+							<!--Contato item 2-->
+							<div class="contact-info-item padd-15">
+								<div class="icon"><i class="fa fa-envelope"></i></div>
+								<h4>E-mail</h4>
+								<p>{{ procfile.email }}</p>
+							</div>
+						</div>
+						<!--CONTATO FORMULARIO-->
+						<div class="linhas">
+							<form action="{% url "all" %}" class="contact-form padd-15" method="POST">
+								{% csrf_token %}
+								<div class="linhas">
+									<div class="form-item col-6 padd-15">
+										<div class="form-group">
+											<input type="text" class="form-control"  placeholder="Nome" required="required" name="name">
+										</div>
+									</div>
+
+									<div class="form-item col-6 padd-15">
+										<div class="form-group">
+											<input type="email" class="form-control" placeholder="E-mail" required="required" name="e-mail">
+										</div>
+									</div>
+								</div>
+
+								<div class="linhas">
+									<div class="form-item col-12 padd-15">
+										<div class="form-group">
+											<input type="text" class="form-control" placeholder="Assunto" required="required" name="subject">
+										</div>
+									</div>
+								</div>
+
+								<div class="linhas">
+									<div class="form-item col-12 padd-15">
+										<div class="form-group">
+											<textarea class="form-control" placeholder="Escreva sua mensagem aqui..." required="required" name="message"></textarea>
+										</div>
+									</div>
+								</div>
+
+								<div class="linhas">
+									<div class="col-12 padd-15">
+										<div class="form-group">
+											<button type="submit" class="btn">Enviar</button>
+										</div>
+									</div>
+								</div>
+
+							</form>
+						</div>
+						<!--FIM FORMULARIO-->
+					</div>
+				</section>
+				<!--FIM CONTATO-->
+			</div>
+		</div>
+
+    <!-- My js-->
+    <script src="{% static 'js/scripts.js' %}"></script>
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HEVVJ063YR"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -17,331 +343,15 @@
 
       gtag('config', 'G-HEVVJ063YR');
     </script>
-    <!-- End -->
-</head>
-<body>
 
-    <!-- MAIN CONTAINER -->
-    <div class="menu-lateral">
-        <!-- LATERAL-->
-        <div class="lateral">
-            <!-- LOGO-->
-            <div class="perfil">
-                <a href="/">
-                    {% if procfile.photo %}
-                        <img src="{{ procfile.photo.url }}" alt="foto-perfil" class="sombra">
-                    {% else %}
-                        <img src="https://res.cloudinary.com/degkn8uwg/image/upload/v1635584188/media-portfolio/FundoPadrão_vmgxoa.jpg" alt="foto-perfil" class="sombra">
-                    {% endif %}
-                </a>
-            </div>
-            <div id="icone-tema">
-              <input type="checkbox" id="check">
-              <label for="check">
-                <i class="bi bi-toggle-off"></i>
-              </label>
-            </div>
-              <!-- MINI-MENU HAMBURGUER-->
-              <div class="mini-menu-button">
-                  <span></span>
-              </div>
-
-              <!--Itens navegação-->
-              <ul class="itens-menu">  
-                  <li><a href="#home" class="active"><i class="fa fa-home"></i> Home</a></li>
-                  <li><a href="#about"><i class="fa fa-user"></i> About</a></li>
-                  <li><a href="#services"><i class="fa fa-list"></i> Services</a></li>
-                  <li><a href="#portfolio"><i class="fa fa-briefcase"></i> Portfolio</a></li>
-                  <li><a href="#contact"><i class="fa fa-comments"></i> Contact</a></li>
-              </ul>
-          </div>
-
-          <!-- CONTEUDO  MEIO DAS PÁGINAS-->
-          <div class="main-content">
-              <!--PAGINA HOME-->
-              <section class="home section active" id="home">
-                  <div class="container">
-                    <p class="translate"><a href="{% url 'pt' %}" class="cor"><i class="bi bi-translate"></i> Portuguese</a></p>
-                      <div class="intro">
-                          <img src="{% static 'imgs/Working from anywhere-cuate.svg' %}" alt="">
-                          <h1>{{ procfile.name }}</h1>
-                          <p class="cor">Web Developer</p>
-                          <div class="redes-sociais">
-                              <a href="https://www.linkedin.com/m/in/gabriel-santana-485767203" target="_blank"><i class="fa fa-linkedin"></i></a>
-                              <a href="https://github.com/GabrielSantos198" target="_blank"><i class="fa fa-github"></i></a>
-                              <a href=""><i class="fa fa-medium"></i></a>
-                              <a href=""><i class="fa fa-behance"></i></a>
-                              <a href=""><i class="fa fa-codepen"></i></a>
-                          </div>
-                      </div>
-                  </div>
-              </section>
-              <!--FIM HOME-->
-
-              <!-- PAGINA SOBRE-->
-              <section class="sobre section" id="about">
-                  <div class="container">
-                      <div class="linhas">
-                          <div class="section-title padd-15">
-                              <h2>About me</h2>
-                          </div>
-                      </div>
-                      <div class="linhas">
-                          <div class="sobre-conteudo padd-15">
-                              <div class="linhas">
-                                  <div class="sobre-texto padd-15">
-                                      <h3>Hello, welcome to my website!</h3>
-                                      <p class="cor">{{ procfile.about }}</p>
-                                  </div>
-                              </div>
-
-                              <!-- SKILLS EDIÇÃO-->
-                              <div class="novo">
-                                  <h3 class="conhecimentos-title">knowledge</h3>
-                                  <div class="lista-conhecimentos">
-                                      {% for know in knowledge %}
-                                          <div class="lista-conhecimentos-item">
-                                              <img src="{{ know.logo.url }}" alt="{{ know.alt }}" class="sombra">
-                                              <p class="cor">{{ know.name }}</p>
-                                          </div>
-                                      {% endfor %}
-                                  </div>
-                                      
-                                  <!--BOTÕES-->
-                                  <div class="linhas">
-                                      <div class="buttons padd-15">
-                                          {% if procfile.cv %}
-                                              <a href="{{ procfile.cv }}" target="_blank" class="btn">Download CV</a>
-                                          {% else %}
-                                              <a href="/" class="btn">Download CV</a>
-                                          {% endif %}
-                                      </div>
-                                  </div>
-                              </div>
-                              <!--Fim-Skills-->
-
-                              <!--Acadêmico e Experiência-->
-                              <div class="linhas">
-                                  <div class="educacao padd-15">
-                                      <h3 class="title">Education</h3>
-                                      <div class="linhas">
-                                          <div class="timeline-box padd-15">
-                                              <div class="timeline sombra">
-
-                                                   {% for categ in eec %}
-                                                       {% if categ.category == 'education' %}
-                                                           <div class="timeline-item">
-                                                              <div class="circulo-data"></div>
-                                                              <h6 class="timeline-data">
-                                                                  <i class="fa fa-calendar"></i> {{ categ.date }}
-                                                              </h6>
-                                                              <h4 class="timeline-title">{{ categ.name }}</h4>
-                                                              <p class="timeline-text">{{ categ.text }}</p>
-                                                          </div>
-                                                      {% endif %}
-                                                  {% endfor %}
-
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-
-                                  <div class="experiencia padd-15">
-                                      <h3 class="title">Experience</h3>
-                                      <div class="linhas">
-                                          <div class="timeline-box padd-15">
-                                              <div class="timeline sombra">
-
-                                                   {% for categ in eec %}
-                                                       {% if categ.category == 'experience' %}
-                                                           <div class="timeline-item">
-                                                              <div class="circulo-data"></div>
-                                                              <h6 class="timeline-data">
-                                                                  <i class="fa fa-calendar"></i> {{ categ.date }}
-                                                              </h6>
-                                                              <h4 class="timeline-title">{{ categ.name }}</h4>
-                                                              <p class="timeline-text">{{ categ.text }}</p>
-                                                          </div>
-                                                      {% endif %}
-                                                  {% endfor %}
-
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-
-                                  <div class="cursos padd-15">
-                                      <h3 class="title">Course</h3>
-                                      <div class="linhas">
-                                          <div class="timeline-box padd-15">
-                                              <div class="timeline sombra">
-
-                                                   {% for categ in eec %}
-                                                       {% if categ.category == 'course' %}
-                                                           <div class="timeline-item">
-                                                              <div class="circulo-data"></div>
-                                                              <h6 class="timeline-data">
-                                                                  <i class="fa fa-calendar"></i> {{ categ.date }}
-                                                              </h6>
-                                                              <h4 class="timeline-title">{{ categ.name }}</h4>
-                                                              <p class="timeline-text">{{ categ.text }}</p>
-                                                          </div>
-                                                      {% endif %}
-                                                  {% endfor %}
-
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>                               
-                              </div>
-                          </div>
-                      </div>     
-                  </div>
-              </section>
-              <!-- FIM SOBRE-->
-
-              <!--SERVIÇOS-->
-              <section class="service section" id="services">
-                  <div class="container">
-                      <div class="linhas">
-                          <div class="section-title padd-15">
-                              <h2>Services</h2>
-                          </div>
-                      </div>
-                      <div class="linhas">
-
-                          {% for service in service %}
-                              <div class="service-item padd-15">
-                                  <div class="service-item-inner">
-                                      <div class="icon"><img src="{{ service.logo.url }}" alt="{{ service.alt }}"></div>
-                                      <h4>{{ service.name }}</h4>
-                                      <p>{{ service.text }}</p>
-                                  </div>
-                              </div>
-                          {% endfor %}
-
-                      </div>
-                </div>
-            </section>
-            <!--FIM - SERVIÇOS-->
-
-            <!--PORTFOLIO-->
-            <section class="portfolio section" id="portfolio">
-                <div class="container">
-                    <div class="linhas">
-                        <div class="section-title padd-15">
-                            <h2>Portfolio</h2>
-                        </div>
-                    </div>
-                    <div class="linhas">
-                         {% for item in project %}
-                         <div class="portfolio-item padd-15">
-                            <div class="portfolio-item-inner sombra">
-                                <a class="link-project" href="{{ item.link }}" target="_blank">
-                                    <div class="portfolio-img">
-                                        {% if item.image %}
-                                            <img src="{{ item.image.url }}" alt="">
-                                        {% else %}
-                                            <img src="https://res.cloudinary.com/degkn8uwg/image/upload/v1635584188/media-portfolio/FundoPadrão_vmgxoa.jpg" alt="">
-                                        {% endif %}
-                                    </div>
-                                    <div class="portfolio-info">
-                                        <h4 class="portfolio-title">{{ item.name }}</h4>
-                                        <p class="portfolio-text">{{ item.text }}</p>
-                                        {% if item.tags %}
-                                            <p class="portfolio-tags">Tags: {{ item.tags }}</p>
-                                        {% endif %}
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
-                        <br>
-                        <br>
-                        <br>
-                </div>
-            </section>
-            <!-- FIM - PORTFOLIO-->
-
-            <!--CONTATO-->
-            <section class="contact section" id="contact">
-                <div class="container">
-                    <div class="linhas">
-
-                        <div class="section-title padd-15">
-                            <h2>Get in touch with me</h2>
-                        </div>
-                    </div>
-                    <div class="linhas">
-                        <!--Contato item 1-->
-                        <div class="contact-info-item padd-15">
-                            <div class="icon"><i class="fa fa-map-marker"></i></div>
-                            <h4 class="cor">Address</h4>
-                            <p class="cor">{{ procfile.city }}</p>
-                        </div>
-
-                        <!--Contato item 2-->
-                        <div class="contact-info-item padd-15">
-                            <div class="icon"><i class="fa fa-envelope"></i></div>
-                            <h4 class="cor">E-mail</h4>
-                            <p class="cor">{{ procfile.email }}</p>
-                        </div>
-                    </div>
-                    <!--CONTATO FORMULARIO-->
-                    <div class="linhas">
-                      <form action="{% url "all" %}" class="contact-form padd-15" method="POST">
-                        {% csrf_token %}
-                            <div class="linhas">
-                                <div class="form-item col-6 padd-15">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control"  placeholder="Name" required="required" name="name">
-                                    </div>
-                                </div>
-
-                                <div class="form-item col-6 padd-15">
-                                    <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="E-mail" required="required" name="e-mail">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="linhas">
-                                <div class="form-item col-12 padd-15">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Subject" required="required" name="subject">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="linhas">
-                                <div class="form-item col-12 padd-15">
-                                    <div class="form-group">
-                                        <textarea class="form-control" placeholder="Write your message here..." required="required" name="message"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="linhas">
-                                <div class="col-12 padd-15">
-                                    <div class="form-group">
-                                       <button type="submit" class="btn">Submit</button>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </form>
-                    </div>
-                    <!--FIM FORMULARIO-->
-                </div>
-            </section>
-            <!--FIM CONTATO-->
-        </div>
-    </div>
-
-      <!--Add js-->
-  <script src="{% static 'js/scripts.js' %}"></script>
-
-</body>
+    <!-- Translate -->
+    <script type="text/javascript">
+      function googleTranslateElementInit2() {new google.translate.TranslateElement({pageLanguage: 'pt',autoDisplay: false}, 'google_translate_element2');}
+    </script><script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit2"></script>
+    <script type="text/javascript">
+      eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('6 7(a,b){n{4(2.9){3 c=2.9("o");c.p(b,f,f);a.q(c)}g{3 c=2.r();a.s(\'t\'+b,c)}}u(e){}}6 h(a){4(a.8)a=a.8;4(a==\'\')v;3 b=a.w(\'|\')[1];3 c;3 d=2.x(\'y\');z(3 i=0;i<d.5;i++)4(d[i].A==\'B-C-D\')c=d[i];4(2.j(\'k\')==E||2.j(\'k\').l.5==0||c.5==0||c.l.5==0){F(6(){h(a)},G)}g{c.8=b;7(c,\'m\');7(c,\'m\')}}',43,43,'||document|var|if|length|function|GTranslateFireEvent|value|createEvent||||||true|else|doGTranslate||getElementById|google_translate_element2|innerHTML|change|try|HTMLEvents|initEvent|dispatchEvent|createEventObject|fireEvent|on|catch|return|split|getElementsByTagName|select|for|className|goog|te|combo|null|setTimeout|500'.split('|'),0,{}))
+    </script>
+  </body>
 </html>
+
 

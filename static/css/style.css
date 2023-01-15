@@ -232,6 +232,7 @@ select {
 
 /* -- MINI MENU BUTTON*/
 .lateral .mini-menu-button {
+  margin-top: 30px;
   height: 40px;
   width: 45px;
   border: 1px solid #d4d4e3;
@@ -347,12 +348,14 @@ select {
 }
 
 .translate{
-  text-align: right;
-  font-size: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
 
-.translate .cor{
-  color: var(--color-text);
+.translate select{
+  font-size: 15px;
+  height: 35px;
 }
 
 .home .intro img {
