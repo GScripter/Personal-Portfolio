@@ -1,0 +1,6 @@
+env
+.env
+*.swp
+*.swap
+*.sqlite3
+

@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    ports:
+      - 8000:8000
+    container_name: portfolio
+    volumes:
+      - .:/portfolio/
+    environment:
+      - DEBUG=<value>
+      - API_KEY=<value>
+      - API_SECRET=<value>
+      - CLOUD_NAME=<value>
+      - EMAIL_HOST_PASSWORD=<value>
+      - EMAIL_HOST_USER=<value>
+      - RECIPIENT_ADDRESS=<value>
+      - SECRET_KEY=<value>
+
