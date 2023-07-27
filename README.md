@@ -2,7 +2,7 @@
 It was created with the aim of presenting a little about me and my knowledge, as well as providing my portfolio, resume and ways to get in touch.
 It's a fully responsive site, I hope you like it! 😁
 
-Link: https://gabrielsantana.herokuapp.com
+Link: https://gabrielsantana.online
 
 ## 📚 Pages
 The site consists of 4 different pages:
