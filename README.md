@@ -2,7 +2,7 @@
 It was created with the aim of presenting a little about me and my knowledge, as well as providing my portfolio, resume and ways to get in touch.
 It's a fully responsive site, I hope you like it! 😁
 
-Link: https://gabrielsantana.online
+Link: http://gabrielsantana.up.railway.app/
 
 ## 📚 Pages
 The site consists of 4 different pages:
@@ -20,5 +20,5 @@ For the development of this site I used the following technologies:
 - Python ( Django );
 
 <p align=center>
--Developed by <strong>Gabriel Santana</strong> ----- Add me on <a href="https://www.linkedin.com/in/GabrielSantana444/" target="__blank">Linkedin</a>
+-Developed by <strong>Gabriel Santana</strong> ----- Add me on <a href="https://www.linkedin.com/in/GScripter" target="__blank">Linkedin</a>
 -</p>
